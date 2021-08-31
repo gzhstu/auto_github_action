@@ -31,7 +31,13 @@ jobs:
              sudo apt update
              sudo apt install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd fakeroot kmod cpio git python3-docutils gettext automake autopoint texinfo build-essential help2man pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget libc-dev-bin
              echo 'dependency installed'
-
+      - name: Clone source code
+        run: |
+             git clone --depth=1 https://e.coding.net/hanwckf/rt-n56u/padavan.git
+      - name: Build_toolchain
+        run: |
+             cd rt-n56u/toolchain-mipsel
+             sh dl_toolchain.sh
 #       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
 #         run: |
